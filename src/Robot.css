@@ -1,0 +1,29 @@
+
+.robot{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    transition: left 0.5s, top 0.5s;
+  }
+
+.robot__body{
+    width:25px;
+    height: 25px;
+}
+
+.robot__direction{
+    width: 20px;
+    height: 20px;
+    transition: transform 0.5s;
+}
+
+.robot__direction--south{
+    transform: rotate(180deg);
+}
+
+.robot__direction--west{
+    transform: rotate(-90deg);
+}
+
+.robot__direction--east{
+    transform: rotate(90deg);
+}

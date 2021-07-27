@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Getting Started with Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Available Scripts to Run
 
-## Available Scripts
+In the project directory, you need to run these two commands
 
-In the project directory, you can run:
-
+### `yarn install`
+It will install the project dependencies
 ### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Structure
 
-### `yarn test`
+Project is mainly four js files.their are css files as well of same name for styling purpose.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 'app.js'
 
-### `yarn build`
+This is a stateful component, which drives all the application state and responsible for rendering and command execution.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 'robot.js'
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This is a stateless component with the responsibility of rendering the Robot.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 'controls.js'
 
-### `yarn eject`
+This file is again a stateless component with responsibilty of rendering command options.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 'constants.js'
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This file is a single place for all the application related constants.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Application Controls
 
-## Learn More
+We can run multiple commands on our robot and the commands are.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Place Robot
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This command will place our robot in the table when x and y positions are valid. 
+There is option to input x and y positions along with selecting the direction.
+There will be validations for providing the right input values.
+There will be an error message if the position is out of the table and the robot will not move.
+In case of successful placement a success message will be displayed
 
-### Code Splitting
+### Reset Robot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This Command will move robot to initial position with default direction.
 
-### Analyzing the Bundle Size
+### Report Robot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This command will display the current position and direction of robot in form of info message.
 
-### Making a Progressive Web App
+### Move Robot
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This command will move robot will move by one unit in direction of its facing unless positiona are invalid.
 
-### Advanced Configuration
+### Move Left
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This command will change the facing of robot anti clockwise or left.
 
-### Deployment
+### Move Right
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This command will change the facing of robot clockwise or right.
 
-### `yarn build` fails to minify
+## Approach
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+It involves following steps.
+1. Render Table, Robot and Controls.
+2. Make Robot position absolute on second layer
+3. Identify the coordinates of position block and than the cordinates of its center.
+4. Place the Robot in the center position using coordinates fetched in last step.
+5. we used react effect depending on robots position on table and when  it changes we trigger the third step to move the robot.
+
+## Improvements
+
+We can improve the application in big way by implementing lots of different things
+1. We can certailnly improve the design to make it more user friendly.
+2. We can add unit testing and behaviour testing to make solution more robust.
+3. Right now we are using certain assumption about the size of the table and starting position but we can make it configurable.
+4. Transitions can improve.

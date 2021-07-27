@@ -1,0 +1,13 @@
+.controls__place .controls__input{
+    width: 120px;
+    margin-right: 20px;
+}
+
+.controls__place{
+    padding: 10px;
+    border: 1px dotted black;
+}
+
+.controls__action{
+    margin-bottom: 20px;
+}
